@@ -13,18 +13,10 @@ package co.edu.unbosque.model;
 		private DataOutputStream out;
 		private String address; 
 
-		
-	 
-		// constructor to put ip address and port
 		public Cliente(int port, String address) {
-			// initialize socket and input output streams
-			
+		
 			this.port = port;
 			this.address = address;
-			
-			
-
-
 		}
 
 		@Override
@@ -34,26 +26,22 @@ package co.edu.unbosque.model;
 
 				try {
 					
-					ciclo1: while(true) {
 					Socket sk = new Socket("127.0.0.1", 8888);
 
-					this.out = new DataOutputStream(sk.getOutputStream());
-					this.in = new DataInputStream(sk.getInputStream());
+					out = new DataOutputStream(sk.getOutputStream());
+					in = new DataInputStream(sk.getInputStream());
 					
 					String mensajeCliente = sn.nextLine();
-					
-					this.out.writeUTF(mensajeCliente);
+					out.writeUTF(mensajeCliente);
 					String respuestaBot = in.readUTF();
-					System.out.println("Bot" + respuestaBot);
-								
+					System.out.println("Bot" + respuestaBot);		
 					System.out.println("Received message:");
-					}
+					
 					
 				} catch (IOException i) {
 					System.out.println(i);
 				}
 			
-			// close the connection
 			try {
 				out.close();
 				
