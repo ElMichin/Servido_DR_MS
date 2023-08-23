@@ -93,7 +93,7 @@ public class Servidor extends Thread {
         	        int mensajeCliente = in.readInt();
         	        String respuestaBot = pregunta(mensajeCliente);
         	        out.writeUTF(respuestaBot);
-        	        sk.close();
+        	        
     	        }
     	       
     	        
